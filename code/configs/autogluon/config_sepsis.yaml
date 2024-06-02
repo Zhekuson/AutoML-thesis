@@ -1,0 +1,23 @@
+model:
+  name: "autogluon"
+  params:
+    label: "hospital_outcome_1alive_0dead"
+    problem_type: "binary"
+    eval_metric: "roc_auc"
+    # not from init
+    holdout_frac: 0.2
+    time_limit: 150
+
+dataset:
+  name: "sepsis"
+  params:
+    load_path: "dataset_sources/sepsis/data.csv"
+    input_type: "data"
+
+settings:
+  wandb:
+    project: "sepsis"
+    tags:
+      - "autogluon"
+      - "150s"
+  n_attempts: 10

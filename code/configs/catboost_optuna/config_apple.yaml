@@ -1,0 +1,22 @@
+model:
+  name: "catboost"
+  params:
+    - model
+dataset:
+  name: "apple"
+  params:
+    load_path: "dataset_sources/apple/apple_quality.csv"
+    input_type: "usual"
+    train_test_split:
+      test_size: 0.2
+
+settings:
+  wandb:
+    project: "apple"
+    tags:
+      - "catboost-optuna"
+      - "30s"
+  optuna_time_limit: 30
+  catboost_time_limit: 10
+  metric: "roc_auc"
+  n_attempts: 10

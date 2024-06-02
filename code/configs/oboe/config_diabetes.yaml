@@ -1,0 +1,26 @@
+model:
+  name: "oboe"
+  params:
+    p_type: "classification"
+    runtime_limit: 120
+    method: "TensorOboe"
+    verbose: True
+    # not from init
+    metric: "roc_auc"
+
+dataset:
+  name: "diabetes"
+  params:
+    load_path: "dataset_sources/diabetes/data.csv"
+    input_type: "usual"
+    train_test_split:
+      test_size: 0.2
+
+settings:
+  dataset_name: "diabetes"
+  wandb:
+    project: "diabetes"
+    tags:
+      - "oboe"
+      - "diabetes"
+  n_attempts: 10

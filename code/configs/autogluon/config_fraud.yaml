@@ -1,0 +1,23 @@
+model:
+  name: "autogluon"
+  params:
+    label: "Class"
+    problem_type: "binary"
+    eval_metric: "roc_auc"
+    # not from init
+    holdout_frac: 0.2
+    time_limit: 90
+
+dataset:
+  name: "fraud"
+  params:
+    load_path: "dataset_sources/fraud/creditcard_2023.csv"
+    input_type: "data"
+
+settings:
+  wandb:
+    project: "fraud"
+    tags:
+      - "autogluon"
+      - "90s"
+  n_attempts: 10

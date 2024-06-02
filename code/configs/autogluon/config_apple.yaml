@@ -1,0 +1,23 @@
+model:
+  name: "autogluon"
+  params:
+    label: "Quality"
+    problem_type: "binary"
+    eval_metric: "roc_auc"
+    # not from init
+    holdout_frac: 0.2
+    time_limit: 30
+
+dataset:
+  name: "apple"
+  params:
+    load_path: "dataset_sources/apple/apple_quality.csv"
+    input_type: "data"
+
+settings:
+  wandb:
+    project: "apple"
+    tags:
+      - "autogluon"
+      - "30s"
+  n_attempts: 10

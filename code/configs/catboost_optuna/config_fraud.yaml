@@ -1,0 +1,22 @@
+model:
+  name: "catboost"
+  params:
+    - model
+dataset:
+  name: "fraud"
+  params:
+    load_path: "dataset_sources/fraud/creditcard_2023.csv"
+    input_type: "usual"
+    train_test_split:
+      test_size: 0.2
+
+settings:
+  wandb:
+    project: "fraud"
+    tags:
+      - "catboost-optuna"
+      - "90s"
+  optuna_time_limit: 90
+  catboost_time_limit: 10
+  metric: "roc_auc"
+  n_attempts: 10

@@ -1,0 +1,23 @@
+model:
+  name: "autogluon"
+  params:
+    label: "class"
+    problem_type: "binary"
+    eval_metric: "roc_auc"
+    # not from init
+    holdout_frac: 0.2
+    time_limit: 30
+
+dataset:
+  name: "mushroom"
+  params:
+    load_path: "dataset_sources/mushroom/data.csv"
+    input_type: "data"
+
+
+settings:
+  wandb:
+    project: "mushroom"
+    tags:
+      - "autogluon"
+  n_attempts: 10

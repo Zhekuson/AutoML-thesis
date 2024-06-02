@@ -1,0 +1,22 @@
+model:
+  name: "auto-sklearn"
+  params:
+    time_left_for_this_task: 30
+    metric: "roc_auc"
+    scoring_functions:
+       - "roc_auc"
+
+dataset:
+  name: "mushroom"
+  params:
+    load_path: "dataset_sources/mushroom/data.csv"
+    input_type: "usual"
+    train_test_split:
+      test_size: 0.2
+
+settings:
+  wandb:
+    project: "mushroom"
+    tags:
+      - "auto-sklearn"
+  n_attempts: 10

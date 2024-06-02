@@ -1,0 +1,15 @@
+name: research_env
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip
+  - pip:
+    - pyyaml
+    - requests
+    - tqdm
+    - numpy
+    - pandas
+    - wandb
+    - autogluon
+    - scikit-learn

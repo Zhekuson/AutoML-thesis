@@ -1,0 +1,34 @@
+model:
+  name: "lama"
+  params:
+    task:
+      name: "binary"
+      metric: "auc"
+    fit_predict_params:
+      roles:
+        target: "hospital_outcome_1alive_0dead"
+      verbose: 3
+
+    gpu_ids: null
+    memory_limit: 8
+    cpu_limit: 4
+    timeout: 150
+    timing_params:
+      overhead: 0
+      mode: 2
+
+dataset:
+  name: "sepsis"
+  params:
+    load_path: "dataset_sources/sepsis/data.csv"
+    input_type: "data_split"
+    train_test_split:
+      test_size: 0.2
+
+settings:
+  wandb:
+    project: "sepsis"
+    tags:
+      - "lama"
+      - "150s"
+  n_attempts: 10

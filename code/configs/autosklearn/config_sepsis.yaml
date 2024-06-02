@@ -1,0 +1,23 @@
+model:
+  name: "auto-sklearn"
+  params:
+    time_left_for_this_task: 150
+    metric: "roc_auc"
+    scoring_functions:
+       - "roc_auc"
+
+dataset:
+  name: "sepsis"
+  params:
+    load_path: "dataset_sources/sepsis/data.csv"
+    input_type: "usual"
+    train_test_split:
+      test_size: 0.2
+
+settings:
+  wandb:
+    project: "sepsis"
+    tags:
+      - "auto-sklearn"
+      - "150s"
+  n_attempts: 10

@@ -1,0 +1,24 @@
+model:
+  name: "autogluon"
+  params:
+    label: "Diabetes_binary"
+    problem_type: "binary"
+    eval_metric: "roc_auc"
+    # not from init
+    holdout_frac: 0.2
+    time_limit: 30
+
+dataset:
+  name: "diabetes"
+  params:
+    load_path: "dataset_sources/diabetes/data.csv"
+    input_type: "data"
+
+settings:
+  dataset_name: "diabetes"
+  wandb:
+    project: "diabetes"
+    tags:
+      - "autogluon"
+      - "30s"
+  n_attempts: 10

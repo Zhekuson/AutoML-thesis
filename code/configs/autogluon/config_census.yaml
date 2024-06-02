@@ -1,0 +1,24 @@
+model:
+  name: "autogluon"
+  params:
+    label: "income"
+    problem_type: "binary"
+    eval_metric: "roc_auc"
+    # not from init
+    holdout_frac: 0.2
+    time_limit: 150
+
+dataset:
+  name: "census"
+  params:
+    load_path: "dataset_sources/census/adult.csv"
+    input_type: "data"
+
+settings:
+  dataset_name: "census"
+  wandb:
+    project: "census"
+    tags:
+      - "autogluon"
+      - "150s"
+  n_attempts: 10

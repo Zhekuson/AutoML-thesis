@@ -1,0 +1,24 @@
+model:
+  name: "oboe"
+  params:
+    p_type: "classification"
+    runtime_limit: 30
+    method: "TensorOboe"
+    verbose: True
+    # not from init
+    metric: "roc_auc"
+
+dataset:
+  name: "mushroom"
+  params:
+    load_path: "dataset_sources/mushroom/data.csv"
+    input_type: "usual"
+    train_test_split:
+      test_size: 0.2
+
+settings:
+  wandb:
+    project: "mushroom"
+    tags:
+      - "oboe"
+  n_attempts: 10

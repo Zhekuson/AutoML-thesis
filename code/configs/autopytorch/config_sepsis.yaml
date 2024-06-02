@@ -1,0 +1,22 @@
+model:
+  name: "autopytorch"
+  params:
+    total_walltime_limit: 300
+    func_eval_time_limit_secs: 300
+    optimize_metric: "roc_auc"
+
+dataset:
+  name: "sepsis"
+  params:
+    load_path: "dataset_sources/sepsis/data.csv"
+    input_type: "usual"
+    train_test_split:
+      test_size: 0.2
+
+settings:
+  wandb:
+    project: "sepsis"
+    tags:
+      - "autopytorch"
+      - "300s"
+  n_attempts: 10

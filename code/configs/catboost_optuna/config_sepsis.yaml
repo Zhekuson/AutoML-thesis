@@ -1,0 +1,23 @@
+model:
+  name: "catboost"
+  params:
+    - model
+dataset:
+  name: "sepsis"
+  params:
+    load_path: "dataset_sources/sepsis/data.csv"
+    input_type: "usual"
+    train_test_split:
+      test_size: 0.2
+
+settings:
+  dataset_name: "sepsis"
+  wandb:
+    project: "sepsis"
+    tags:
+      - "catboost-optuna"
+      - "150s"
+  optuna_time_limit: 150
+  catboost_time_limit: 10
+  metric: "roc_auc"
+  n_attempts: 10

@@ -1,0 +1,35 @@
+model:
+  name: "lama"
+  params:
+    task:
+      name: "binary"
+      metric: "auc"
+    fit_predict_params:
+      roles:
+        target: "income"
+      verbose: 3
+
+    gpu_ids: null
+    memory_limit: 8
+    cpu_limit: 4
+    timeout: 150
+    timing_params:
+      overhead: 0
+      mode: 2
+
+dataset:
+  name: "census"
+  params:
+    load_path: "dataset_sources/census/adult.csv"
+    input_type: "data_split"
+    train_test_split:
+      test_size: 0.2
+
+settings:
+  dataset_name: "census"
+  wandb:
+    project: "census"
+    tags:
+      - "lama"
+      - "150s"
+  n_attempts: 10

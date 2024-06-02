@@ -1,0 +1,9 @@
+/dataset_sources/
+/.idea/
+/secrets/
+/.env_autosklearn
+/.env_autogluon
+/.env_oboe
+/.env_lama
+/.env_catboost_optuna
+/.env_autopytorch

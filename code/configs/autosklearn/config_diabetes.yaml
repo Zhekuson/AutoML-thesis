@@ -1,0 +1,25 @@
+model:
+  name: "auto-sklearn"
+  params:
+    time_left_for_this_task: 30
+    metric: "roc_auc"
+    scoring_functions:
+       - "roc_auc"
+
+dataset:
+  name: "diabetes"
+  params:
+    load_path: "dataset_sources/diabetes/data.csv"
+    input_type: "usual"
+    train_test_split:
+      test_size: 0.2
+
+settings:
+  dataset_name: "diabetes"
+  wandb:
+    project: "diabetes"
+    notes: "diabetes"
+    tags:
+      - "auto-sklearn"
+      - "30s"
+  n_attempts: 10

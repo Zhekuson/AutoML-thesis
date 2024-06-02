@@ -1,0 +1,21 @@
+model:
+  name: "catboost"
+  params:
+    - model
+dataset:
+  name: "mushroom"
+  params:
+    load_path: "dataset_sources/mushroom/data.csv"
+    input_type: "usual"
+    train_test_split:
+      test_size: 0.2
+
+settings:
+  wandb:
+    project: "mushroom"
+    tags:
+      - "catboost-optuna"
+  optuna_time_limit: 10
+  catboost_time_limit: 1
+  metric: "roc_auc"
+  n_attempts: 10
